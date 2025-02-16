@@ -64,8 +64,24 @@ console.log(calculateLoanInterest(5000, 0.07, 5)); // Expected output: "Total In
 
 let transactions = [500, 1200, 3000, 800, 2200]; // Declare an array
 function filterHigherValueTransactions(transactions, filterFunction) { // Create function to filter
-    return transactions.filter(filterFunction) // Return value 
+    return transactions.filter(filterFunction); // Return value 
 }
 
 console.log(filterHigherValueTransactions(transactions, amount => amount > 1000)); // Expected output: 1200, 3000, 22000
+
+// Task 7 Closures
+
+function createBudgetTracker() {
+    let balance = 0; // Balance equal to 0
+
+    return function(expense) { // Create functon to adjust balance  
+        balance -= expense; 
+        console.log(`Current Balance: ${balance}`); // Log to console 
+    };
+}
+
+let budget = createBudgetTracker(); // Declare budget equal to function
+
+budget(300); // Expected Output "Current Balance: -$300"
+budget(200); // Expected output: "Current Balance: -$500"
 
