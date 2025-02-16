@@ -20,19 +20,32 @@ console.log(calculateHourlyWage(75000, 35)); // Expected output: "Hourly Wage: $
 
 // Task 3 Arrow Function
 
-function calculateLoyaltyDiscount(amount, years) { // Function to calculate loyalty discount
-    let discount = 0;
-    if (years >= 5) { // If years are greater than or equal to 5, discount is 15%
-        discount = 0.15; 
-    } else if (years >= 3) { // If years are greater than or equal to 3, discount is 10%
-        discount = 0.10;
-    } else { // If years are less than 3 discount is 5%
-        discount = 0.05;
-    }
-
+let calculateLoyaltyDiscount = (amount, years) => { // Function to calculate loyalty discount
+    discount = years >= 5 ? .15 : years >= 3 ? .10 : 0.05; // Used a ternary operator as an alternative to if..else statement
     let discountedPrice = amount - (amount * discount); // Calculating discounted price
     return "Discounted Price: $" + discountedPrice.toFixed(2); // Returns value to two decimal points
 }
 
 console.log(calculateLoyaltyDiscount(100, 6)); // Expected output: "Discounted Price: $85.00"
 console.log(calculateLoyaltyDiscount(200, 2)); // Expected output: "Discounted Price: $190.00"
+
+// Task 4 Parameters and Arguments 
+
+function calculateShippingCost(weight, location, expedited = false) { // Declare function
+    if (location === "USA") { // If location is USA, the intital cost is $5 and weight cost is $.05 per lbs
+        initialCost = 5;
+        lbsCost = 0.5;
+    } else if (location === "Canada") { // If location is Canada, inital cost is 10 and weight cost is 7
+        initialCost = 10;
+        lbsCost = 0.7
+    }
+
+    let totalCost = initialCost+ (weight * lbsCost); // Calculate total cost 
+    if (expedited) { // If expeditied is true, add $10
+        totalCost += 10;
+    }
+    return `Shipping Cost: $${totalCost.toFixed(2)}`; // Return valute
+}
+
+console.log(calculateShippingCost(10, "USA", true)); // Expected output: "Shipping Cost: $20.00"
+console.log(calculateShippingCost(5, "Canada", false)); // Expected output: "Shipping Cost: $13.50"
