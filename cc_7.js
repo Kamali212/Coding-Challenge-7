@@ -85,3 +85,14 @@ let budget = createBudgetTracker(); // Declare budget equal to function
 budget(300); // Expected Output "Current Balance: -$300"
 budget(200); // Expected output: "Current Balance: -$500"
 
+// Task 8 Recursion in Javascript
+function calculateGrowth(years, revenue) { // Create function to calculate growth 
+    if (years >= 10) { // Checks years, if greater than 10 return the current valaue 
+        console.log(`Projected Revenue: $${revenue.toFixed(2)}`)
+    return;
+    } 
+    return calculateGrowth(years + 1, revenue *1.05); // If years are not greater than 10, function will calculate growth
+}
+
+calculateGrowth(8, 1000); // Expected output: "Projected Revenue: $1102.50"
+calculateGrowth(5, 5000); // Expected output: "Projected Revenue: $6381.41"
