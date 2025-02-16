@@ -59,3 +59,13 @@ function calculateLoanInterest(principal, rate, years) { // Creating a function 
 
 console.log(calculateLoanInterest(1000, 0.05, 3)); // Expected output: "Total Interest: $150.00"
 console.log(calculateLoanInterest(5000, 0.07, 5)); // Expected output: "Total Intrerest: $1750.00"
+
+// Task 6 Higher Order Functions 
+
+let transactions = [500, 1200, 3000, 800, 2200]; // Declare an array
+function filterHigherValueTransactions(transactions, filterFunction) { // Create function to filter
+    return transactions.filter(filterFunction) // Return value 
+}
+
+console.log(filterHigherValueTransactions(transactions, amount => amount > 1000)); // Expected output: 1200, 3000, 22000
+
