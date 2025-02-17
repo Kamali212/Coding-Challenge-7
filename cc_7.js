@@ -44,7 +44,7 @@ function calculateShippingCost(weight, location, expedited = false) { // Declare
     if (expedited) { // If expeditied is true, add $10
         totalCost += 10;
     }
-    return `Shipping Cost: $${totalCost.toFixed(2)}`; // Return valute
+    return `Shipping Cost: $${totalCost.toFixed(2)}`; // Return value
 }
 
 console.log(calculateShippingCost(10, "USA", true)); // Expected output: "Shipping Cost: $20.00"
@@ -54,7 +54,7 @@ console.log(calculateShippingCost(5, "Canada", false)); // Expected output: "Shi
 
 function calculateLoanInterest(principal, rate, years) { // Creating a function to calculate total interest 
     interest = principal * rate * years;
-    return `Total Interest: $${interest.toFixed(2)}`;
+    return `Total Interest: $${interest.toFixed(2)}`; // Return value
 }
 
 console.log(calculateLoanInterest(1000, 0.05, 3)); // Expected output: "Total Interest: $150.00"
@@ -76,23 +76,22 @@ function createBudgetTracker() {
 
     return function(expense) { // Create functon to adjust balance  
         balance -= expense; 
-        console.log(`Current Balance: ${balance}`); // Log to console 
+      return `Current Balance: ${balance}`; // Return Value
     };
 }
 
 let budget = createBudgetTracker(); // Declare budget equal to function
 
-budget(300); // Expected Output "Current Balance: -$300"
-budget(200); // Expected output: "Current Balance: -$500"
+console.log(budget(300)); // Expected Output "Current Balance: -$300"
+console.log(budget(200)); // Expected output: "Current Balance: -$500"
 
 // Task 8 Recursion in Javascript
 function calculateGrowth(years, revenue) { // Create function to calculate growth 
     if (years >= 10) { // Checks years, if greater than 10 return the current valaue 
-        console.log(`Projected Revenue: $${revenue.toFixed(2)}`)
-    return;
+        return `Projected Revenue: $${revenue.toFixed(2)}`;
     } 
     return calculateGrowth(years + 1, revenue *1.05); // If years are not greater than 10, function will calculate growth
 }
 
-calculateGrowth(8, 1000); // Expected output: "Projected Revenue: $1102.50"
-calculateGrowth(5, 5000); // Expected output: "Projected Revenue: $6381.41"
+console.log(calculateGrowth(8, 1000)); // Expected output: "Projected Revenue: $1102.50"
+console.log(calculateGrowth(5, 5000)); // Expected output: "Projected Revenue: $6381.41"
